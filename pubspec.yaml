@@ -1,0 +1,72 @@
+# name: edu_voice_main
+# description: "A new Flutter project."
+
+# # Prevent accidental publish
+# publish_to: "none"
+
+# # App version
+# version: 1.0.0+1
+
+# environment:
+#   sdk: ^3.8.1
+
+# dependencies:
+#   flutter:
+#     sdk: flutter
+
+#   http: ^1.2.0
+
+#   cupertino_icons: ^1.0.8
+#   table_calendar: ^3.0.9 # ✅ For in-app calendar widget
+#   chewie: ^1.7.4 # ✅ Modern video player UI
+#   video_player: ^2.7.2 # ✅ Core video player
+#   google_fonts: ^6.2.1 # ✅ Use the latest stable version
+
+# dev_dependencies:
+#   flutter_test:
+#     sdk: flutter
+#   flutter_lints: ^5.0.0
+
+#   uses-material-design: true
+
+#   assets:
+#     - assets/images/bg.png
+#     - assets/images/logo.png
+#     - assets/images/profile_placeholder.png
+#     - assets/images/t_placeholder.png
+name: edu_voice_main
+description: "A new Flutter project."
+
+# Prevent accidental publish
+publish_to: "none"
+
+# App version
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^1.2.0
+  cupertino_icons: ^1.0.8
+  table_calendar: ^3.0.9 # ✅ For in-app calendar widget
+  chewie: ^1.7.4 # ✅ Modern video player UI
+  video_player: ^2.7.2 # ✅ Core video player
+  google_fonts: ^6.2.1 # ✅ Use the latest stable version
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/bg.png
+    - assets/images/logo.png
+    - assets/images/profile_placeholder.png
+    - assets/images/t_placeholder.png
