@@ -1782,6 +1782,331 @@
 //     );
 //   }
 // }
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:edu_voice_main/screens/student/student_dashboard.dart';
+// import 'package:edu_voice_main/screens/teacher/teracher_dashboard.dart';
+
+// class LoginScreen extends StatefulWidget {
+//   const LoginScreen({super.key});
+
+//   @override
+//   State<LoginScreen> createState() => _LoginScreenState();
+// }
+
+// class _LoginScreenState extends State<LoginScreen>
+//     with SingleTickerProviderStateMixin {
+//   final TextEditingController _emailController = TextEditingController();
+//   final TextEditingController _passwordController = TextEditingController();
+
+//   late AnimationController _controller;
+//   late Animation<double> _fadeIn;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller =
+//         AnimationController(vsync: this, duration: const Duration(seconds: 2));
+//     _fadeIn = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+//     _controller.forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     _emailController.dispose();
+//     _passwordController.dispose();
+//     super.dispose();
+//   }
+
+//   void _handleLogin(String email, String password, BuildContext context) {
+//     final userEmail = email.trim().toLowerCase();
+
+//     if (userEmail == 'teacher@gmail.com') {
+//       _navigateWithSlide(const TeacherDashboard());
+//     } else if (userEmail == 'student@gmail.com') {
+//       _navigateWithSlide(const StudentDashboard());
+//     } else {
+//       showDialog(
+//         context: context,
+//         builder: (context) => const AlertDialog(
+//           title: Text('Invalid Email'),
+//           content: Text('Use teacher@gmail.com or student@gmail.com'),
+//         ),
+//       );
+//     }
+//   }
+
+//   void _navigateWithSlide(Widget nextPage) {
+//     Navigator.pushReplacement(
+//       context,
+//       PageRouteBuilder(
+//         transitionDuration: const Duration(milliseconds: 700),
+//         pageBuilder: (context, animation, secondaryAnimation) => nextPage,
+//         transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//           final tween = Tween(begin: const Offset(0.0, 1.0), end: Offset.zero)
+//               .chain(CurveTween(curve: Curves.easeInOut));
+//           return SlideTransition(position: animation.drive(tween), child: child);
+//         },
+//       ),
+//     );
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: AnimatedContainer(
+//         duration: const Duration(seconds: 2),
+//         decoration: const BoxDecoration(
+//           gradient: LinearGradient(
+//             colors: [
+//               Color(0xFFFF9800), // Vibrant Orange
+//               Color(0xFF1565C0), // Deep Blue
+//             ],
+//             begin: Alignment.topLeft,
+//             end: Alignment.bottomRight,
+//           ),
+//         ),
+//         child: SafeArea(
+//           child: FadeTransition(
+//             opacity: _fadeIn,
+//             child: SingleChildScrollView(
+//               padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+//               child: Column(
+//                 children: [
+//                   const SizedBox(height: 30),
+
+//                   /// Logo
+//                   Hero(
+//                     tag: "logo",
+//                     child: Image.asset(
+//                       'assets/images/logo.png',
+//                       width: 120,
+//                       height: 120,
+//                     ),
+//                   ),
+//                   const SizedBox(height: 14),
+//                   const Text(
+//                     "EduVoice",
+//                     style: TextStyle(
+//                       fontSize: 32,
+//                       fontWeight: FontWeight.bold,
+//                       letterSpacing: 1.2,
+//                       color: Colors.white,
+//                     ),
+//                   ),
+//                   const SizedBox(height: 40),
+
+//                   /// Glass Card
+//                   Container(
+//                     padding: const EdgeInsets.all(20),
+//                     decoration: BoxDecoration(
+//                       color: Colors.white.withOpacity(0.1),
+//                       borderRadius: BorderRadius.circular(24),
+//                       border: Border.all(color: Colors.white24, width: 1),
+//                       boxShadow: [
+//                         BoxShadow(
+//                           color: Colors.black.withOpacity(0.25),
+//                           blurRadius: 20,
+//                           offset: const Offset(0, 10),
+//                         ),
+//                       ],
+//                     ),
+//                     child: Column(
+//                       children: [
+//                         const Text(
+//                           "Welcome Back 👋",
+//                           style: TextStyle(
+//                             fontSize: 22,
+//                             fontWeight: FontWeight.w600,
+//                             color: Colors.white,
+//                           ),
+//                         ),
+//                         const SizedBox(height: 8),
+//                         const Text(
+//                           "Login to your account to continue",
+//                           style: TextStyle(color: Colors.white70, fontSize: 14),
+//                         ),
+//                         const SizedBox(height: 24),
+
+//                         /// Email
+//                         _buildTextField(
+//                           _emailController,
+//                           "Email Address",
+//                           Icons.email_outlined,
+//                           false,
+//                         ),
+//                         const SizedBox(height: 16),
+
+//                         /// Password
+//                         _buildTextField(
+//                           _passwordController,
+//                           "Password",
+//                           Icons.lock_outline,
+//                           true,
+//                         ),
+//                         const SizedBox(height: 28),
+
+//                         /// Orange + Blue Gradient Button
+//                         GestureDetector(
+//                           onTap: () {
+//                             _handleLogin(
+//                               _emailController.text.trim(),
+//                               _passwordController.text.trim(),
+//                               context,
+//                             );
+//                           },
+//                           child: Container(
+//                             width: double.infinity,
+//                             padding: const EdgeInsets.symmetric(vertical: 16),
+//                             decoration: BoxDecoration(
+//                               gradient: const LinearGradient(
+//                                 colors: [
+//                                   Color(0xFFFF6F00), // Deep Orange
+//                                   Color(0xFF0D47A1), // Strong Blue
+//                                 ],
+//                                 begin: Alignment.centerLeft,
+//                                 end: Alignment.centerRight,
+//                               ),
+//                               borderRadius: BorderRadius.circular(16),
+//                               boxShadow: [
+//                                 BoxShadow(
+//                                   color: Colors.orangeAccent.withOpacity(0.6),
+//                                   blurRadius: 15,
+//                                   offset: const Offset(0, 4),
+//                                 ),
+//                               ],
+//                             ),
+//                             child: const Center(
+//                               child: Text(
+//                                 "Continue",
+//                                 style: TextStyle(
+//                                   color: Colors.white,
+//                                   fontSize: 18,
+//                                   fontWeight: FontWeight.bold,
+//                                   letterSpacing: 1,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+
+//                   const SizedBox(height: 30),
+
+//                   /// Divider
+//                   Row(
+//                     children: const [
+//                       Expanded(child: Divider(color: Colors.white54)),
+//                       Padding(
+//                         padding: EdgeInsets.symmetric(horizontal: 8),
+//                         child: Text("or",
+//                             style: TextStyle(color: Colors.white70)),
+//                       ),
+//                       Expanded(child: Divider(color: Colors.white54)),
+//                     ],
+//                   ),
+//                   const SizedBox(height: 24),
+
+//                   /// Social Logins
+//                   _socialButton(
+//                     icon: Icons.g_mobiledata,
+//                     text: "Continue with Google",
+//                     bgColor: Colors.white,
+//                     fgColor: Colors.black,
+//                   ),
+//                   const SizedBox(height: 14),
+//                   _socialButton(
+//                     icon: Icons.apple,
+//                     text: "Continue with Apple",
+//                     bgColor: Colors.black,
+//                     fgColor: Colors.white,
+//                   ),
+
+//                   const SizedBox(height: 30),
+
+//                   /// Terms
+//                   const Text(
+//                     "By continuing, you agree to our\nTerms of Service & Privacy Policy",
+//                     textAlign: TextAlign.center,
+//                     style: TextStyle(fontSize: 12, color: Colors.white70),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   /// Reusable Input Field
+//   Widget _buildTextField(
+//     TextEditingController controller,
+//     String hint,
+//     IconData icon,
+//     bool isPassword,
+//   ) {
+//     return TextField(
+//       controller: controller,
+//       obscureText: isPassword,
+//       style: const TextStyle(color: Colors.white),
+//       decoration: InputDecoration(
+//         hintText: hint,
+//         hintStyle: const TextStyle(color: Colors.white54),
+//         prefixIcon: Icon(icon, color: Colors.orangeAccent),
+//         filled: true,
+//         fillColor: Colors.white.withOpacity(0.05),
+//         contentPadding:
+//             const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+//         enabledBorder: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(16),
+//           borderSide: const BorderSide(color: Colors.white24),
+//         ),
+//         focusedBorder: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(16),
+//           borderSide: const BorderSide(color: Colors.orangeAccent, width: 1.5),
+//         ),
+//       ),
+//     );
+//   }
+
+//   /// Reusable Social Button
+//   Widget _socialButton({
+//     required IconData icon,
+//     required String text,
+//     required Color bgColor,
+//     required Color fgColor,
+//   }) {
+//     return ElevatedButton.icon(
+//       onPressed: () {},
+//       icon: Icon(icon, size: 28, color: fgColor),
+//       label: Text(
+//         text,
+//         style: TextStyle(
+//           color: fgColor,
+//           fontWeight: FontWeight.w600,
+//         ),
+//       ),
+//       style: ElevatedButton.styleFrom(
+//         backgroundColor: bgColor,
+//         minimumSize: const Size(double.infinity, 52),
+//         shape: RoundedRectangleBorder(
+//           borderRadius: BorderRadius.circular(16),
+//         ),
+//         elevation: 6,
+//         shadowColor: Colors.black38,
+//       ),
+//     );
+//   }
+// }
+
+
+
 import 'package:flutter/material.dart';
 import 'package:edu_voice_main/screens/student/student_dashboard.dart';
 import 'package:edu_voice_main/screens/teacher/teracher_dashboard.dart';
@@ -1854,186 +2179,160 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedContainer(
-        duration: const Duration(seconds: 2),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFFFF9800), // Vibrant Orange
-              Color(0xFF1565C0), // Deep Blue
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-        child: SafeArea(
-          child: FadeTransition(
-            opacity: _fadeIn,
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
-              child: Column(
-                children: [
-                  const SizedBox(height: 30),
+      backgroundColor: const Color(0xFFF5F5F5), // Light Grey Background
+      body: SafeArea(
+        child: FadeTransition(
+          opacity: _fadeIn,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+            child: Column(
+              children: [
+                const SizedBox(height: 30),
 
-                  /// Logo
-                  Hero(
-                    tag: "logo",
-                    child: Image.asset(
-                      'assets/images/logo.png',
-                      width: 120,
-                      height: 120,
-                    ),
+                /// LOGO
+                Hero(
+                  tag: "logo",
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 180,
+                    height: 180,
                   ),
-                  const SizedBox(height: 14),
-                  const Text(
-                    "EduVoice",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.2,
-                      color: Colors.white,
-                    ),
+                ),
+                const SizedBox(height: 14),
+
+                const Text(
+                  "EduVoice",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(221, 120, 115, 115),
                   ),
-                  const SizedBox(height: 40),
+                ),
 
-                  /// Glass Card
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: Colors.white24, width: 1),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.25),
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Welcome Back 👋",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        const Text(
-                          "Login to your account to continue",
-                          style: TextStyle(color: Colors.white70, fontSize: 14),
-                        ),
-                        const SizedBox(height: 24),
+                const SizedBox(height: 40),
 
-                        /// Email
-                        _buildTextField(
-                          _emailController,
-                          "Email Address",
-                          Icons.email_outlined,
-                          false,
-                        ),
-                        const SizedBox(height: 16),
-
-                        /// Password
-                        _buildTextField(
-                          _passwordController,
-                          "Password",
-                          Icons.lock_outline,
-                          true,
-                        ),
-                        const SizedBox(height: 28),
-
-                        /// Orange + Blue Gradient Button
-                        GestureDetector(
-                          onTap: () {
-                            _handleLogin(
-                              _emailController.text.trim(),
-                              _passwordController.text.trim(),
-                              context,
-                            );
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color(0xFFFF6F00), // Deep Orange
-                                  Color(0xFF0D47A1), // Strong Blue
-                                ],
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                              ),
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.orangeAccent.withOpacity(0.6),
-                                  blurRadius: 15,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: const Center(
-                              child: Text(
-                                "Continue",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 1,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  const SizedBox(height: 30),
-
-                  /// Divider
-                  Row(
-                    children: const [
-                      Expanded(child: Divider(color: Colors.white54)),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        child: Text("or",
-                            style: TextStyle(color: Colors.white70)),
+                /// WHITE CARD
+                Container(
+                  padding: const EdgeInsets.all(22),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(24),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.08),
+                        blurRadius: 20,
+                        offset: const Offset(0, 8),
                       ),
-                      Expanded(child: Divider(color: Colors.white54)),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Welcome Back 👋",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromARGB(221, 120, 115, 115),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        "Login to your account to continue",
+                        style: TextStyle(color: Colors.black54),
+                      ),
+                      const SizedBox(height: 24),
 
-                  /// Social Logins
-                  _socialButton(
-                    icon: Icons.g_mobiledata,
-                    text: "Continue with Google",
-                    bgColor: Colors.white,
-                    fgColor: Colors.black,
-                  ),
-                  const SizedBox(height: 14),
-                  _socialButton(
-                    icon: Icons.apple,
-                    text: "Continue with Apple",
-                    bgColor: Colors.black,
-                    fgColor: Colors.white,
-                  ),
+                      _buildTextField(
+                        _emailController,
+                        "Email Address",
+                        Icons.email_outlined,
+                        false,
+                      ),
+                      const SizedBox(height: 16),
 
-                  const SizedBox(height: 30),
+                      _buildTextField(
+                        _passwordController,
+                        "Password",
+                        Icons.lock_outline,
+                        true,
+                      ),
+                      const SizedBox(height: 28),
 
-                  /// Terms
-                  const Text(
-                    "By continuing, you agree to our\nTerms of Service & Privacy Policy",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 12, color: Colors.white70),
+                      /// GREY BUTTON
+                      GestureDetector(
+                        onTap: () {
+                          _handleLogin(
+                            _emailController.text.trim(),
+                            _passwordController.text.trim(),
+                            context,
+                          );
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFFBDBDBD),
+                                Color(0xFF616161),
+                              ],
+                            ),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              "Continue",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+
+                const SizedBox(height: 30),
+
+                Row(
+                  children: const [
+                    Expanded(child: Divider(color: Colors.black26)),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8),
+                      child: Text("or",
+                          style: TextStyle(color: Colors.black54)),
+                    ),
+                    Expanded(child: Divider(color: Colors.black26)),
+                  ],
+                ),
+
+                const SizedBox(height: 24),
+
+                _socialButton(
+                  icon: Icons.g_mobiledata,
+                  text: "Continue with Google",
+                  bgColor: Colors.white,
+                  fgColor: Colors.black,
+                ),
+                const SizedBox(height: 14),
+                _socialButton(
+                  icon: Icons.apple,
+                  text: "Continue with Apple",
+                  bgColor: Colors.black,
+                  fgColor: Colors.white,
+                ),
+
+                const SizedBox(height: 30),
+
+                const Text(
+                  "By continuing, you agree to our\nTerms of Service & Privacy Policy",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                ),
+              ],
             ),
           ),
         ),
@@ -2041,7 +2340,7 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
 
-  /// Reusable Input Field
+  /// INPUT FIELD (GREY STYLE)
   Widget _buildTextField(
     TextEditingController controller,
     String hint,
@@ -2051,28 +2350,21 @@ class _LoginScreenState extends State<LoginScreen>
     return TextField(
       controller: controller,
       obscureText: isPassword,
-      style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white54),
-        prefixIcon: Icon(icon, color: Colors.orangeAccent),
+        prefixIcon: Icon(icon, color: Colors.grey),
         filled: true,
-        fillColor: Colors.white.withOpacity(0.05),
+        fillColor: const Color(0xFFF1F1F1),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        enabledBorder: OutlineInputBorder(
+        border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Colors.white24),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: Colors.orangeAccent, width: 1.5),
+          borderSide: BorderSide.none,
         ),
       ),
     );
   }
 
-  /// Reusable Social Button
   Widget _socialButton({
     required IconData icon,
     required String text,
@@ -2084,10 +2376,7 @@ class _LoginScreenState extends State<LoginScreen>
       icon: Icon(icon, size: 28, color: fgColor),
       label: Text(
         text,
-        style: TextStyle(
-          color: fgColor,
-          fontWeight: FontWeight.w600,
-        ),
+        style: TextStyle(color: fgColor, fontWeight: FontWeight.w600),
       ),
       style: ElevatedButton.styleFrom(
         backgroundColor: bgColor,
@@ -2095,8 +2384,7 @@ class _LoginScreenState extends State<LoginScreen>
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
-        elevation: 6,
-        shadowColor: Colors.black38,
+        elevation: 3,
       ),
     );
   }

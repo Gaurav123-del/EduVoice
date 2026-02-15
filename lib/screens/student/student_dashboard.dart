@@ -1689,27 +1689,27 @@ class _StudentDashboardState extends State<StudentDashboard>
         topic: 'Machine Learning Basics',
         subject: 'AI',
         teacher: 'Prof. Sharma',
-        date: DateTime(2025, 8, 26)),
+        date: DateTime(2025, 11, 26)),
     Lecture(
         topic: 'Data Structures',
         subject: 'Computer Science',
         teacher: 'Prof. Kaur',
-        date: DateTime(2025, 9, 2)),
+        date: DateTime(2025, 11, 2)),
     Lecture(
         topic: 'Nationalism in India',
         subject: 'Social Science',
         teacher: 'Mrs. Singh',
-        date: DateTime(2025, 9, 2)),
+        date: DateTime(2025, 11, 2)),
     Lecture(
         topic: 'Periodic Classification of Elements',
         subject: 'Science',
         teacher: 'Mr. Iyer',
-        date: DateTime(2025, 7, 30)),
+        date: DateTime(2025, 11, 30)),
     Lecture(
         topic: 'Letter to Editor',
         subject: 'Hindi',
         teacher: 'Mrs. Gupta',
-        date: DateTime(2025, 7, 30)),
+        date: DateTime(2025, 11, 30)),
   ];
 
   List<Lecture> filteredLectures = [];
