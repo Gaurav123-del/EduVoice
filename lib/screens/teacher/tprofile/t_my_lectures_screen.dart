@@ -100,7 +100,7 @@ class _MyLecturesScreenState extends State<MyLecturesScreen> with SingleTickerPr
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF1E3A8A), Color(0xFFFB923C)], // Deep Blue → Orange
+               colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

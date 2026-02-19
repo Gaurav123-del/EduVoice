@@ -38,11 +38,15 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF2196F3), Color(0xFFFF9800)], // Blue + Orange
+               colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
           ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Color.fromARGB(255, 255, 255, 255)),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
 

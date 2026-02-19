@@ -150,7 +150,7 @@ class TeacherProfileScreen extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color.fromARGB(255, 75, 102, 176), Color(0xFFFB923C)], // Deep Blue → Soft Orange
+               colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

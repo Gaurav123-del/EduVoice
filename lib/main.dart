@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:edu_voice_main/screens/start_screen.dart';
 
 void main() {
+  
   runApp(const MyApp());
 }
 

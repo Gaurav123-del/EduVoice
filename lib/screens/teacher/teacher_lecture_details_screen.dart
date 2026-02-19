@@ -94,7 +94,7 @@ class TeacherLectureDetailsScreen extends StatelessWidget {
       'Can you explain topic 2 again?',
       'Please share the slides.',
       'Will there be an assignment?',
-      'Is this in the final exam?'
+      'Is this in the final exam?',
     ];
 
     return Scaffold(
@@ -119,12 +119,8 @@ class TeacherLectureDetailsScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                   Color(0xFF1E3A8A), // Deep Blue
-                   Color.fromARGB(255, 231, 165, 111),
-                   Color(0xFF0EA5E9), // Cyan-Blue
-                   Color(0xFFFB923C), // Soft Orange
-                ], // Blue + Orange
+                colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
+
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -150,7 +146,7 @@ class TeacherLectureDetailsScreen extends StatelessWidget {
                           color: Colors.black26,
                           blurRadius: 8,
                           offset: const Offset(0, 4),
-                        )
+                        ),
                       ],
                     ),
                     child: Column(
@@ -233,8 +229,10 @@ class TeacherLectureDetailsScreen extends StatelessWidget {
                           border: Border.all(color: Colors.white30),
                         ),
                         child: ListTile(
-                          leading: const Icon(Icons.person,
-                              color: Colors.orangeAccent),
+                          leading: const Icon(
+                            Icons.person,
+                            color: Colors.orangeAccent,
+                          ),
                           title: Text(
                             queries[index],
                             style: const TextStyle(

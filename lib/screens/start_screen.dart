@@ -91,8 +91,8 @@ class _StartScreenState extends State<StartScreen>
                       decoration: const BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black45,
-                            blurRadius: 20,
+                            color: Color.fromARGB(115, 255, 255, 255),
+                            blurRadius: 30,
                             spreadRadius: 1,
                           ),
                         ],
@@ -146,7 +146,7 @@ class _StartScreenState extends State<StartScreen>
                         child: ElevatedButton(
                           onPressed: _navigateToLogin,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
+                            backgroundColor: const  Color(0xFF0077B6),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -176,3 +176,159 @@ class _StartScreenState extends State<StartScreen>
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'login_Screen.dart';
+
+// class StartScreen extends StatefulWidget {
+//   const StartScreen({super.key});
+
+//   @override
+//   State<StartScreen> createState() => _StartScreenState();
+// }
+
+// class _StartScreenState extends State<StartScreen>
+//     with SingleTickerProviderStateMixin {
+//   late AnimationController _controller;
+//   late Animation<double> _fadeIn;
+//   late Animation<Offset> _slideUp;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 1800),
+//     );
+
+//     _fadeIn = Tween<double>(begin: 0, end: 1).animate(
+//       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+//     );
+
+//     _slideUp = Tween<Offset>(begin: const Offset(0, 0.2), end: Offset.zero)
+//         .animate(
+//       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+//     );
+
+//     _controller.forward();
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+//   void _navigateToLogin() {
+//     Navigator.push(
+//       context,
+//       PageRouteBuilder(
+//         transitionDuration: const Duration(milliseconds: 500),
+//         pageBuilder: (_, __, ___) => const LoginScreen(),
+//         transitionsBuilder: (_, animation, __, child) {
+//           const begin = Offset(1.0, 0.0);
+//           const end = Offset.zero;
+//           const curve = Curves.easeInOut;
+
+//           var tween = Tween(begin: begin, end: end).chain(
+//             CurveTween(curve: curve),
+//           );
+//           return SlideTransition(position: animation.drive(tween), child: child);
+//         },
+//       ),
+//     );
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final screenWidth = MediaQuery.of(context).size.width;
+
+//     return Scaffold(
+//       backgroundColor: const Color.fromARGB(255, 84, 81, 81), // ✅ Pure grey theme
+//       body: SafeArea(
+//         child: FadeTransition(
+//           opacity: _fadeIn,
+//           child: SlideTransition(
+//             position: _slideUp,
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 /// ✅ Responsive Logo (fits screen)
+//                 Container(
+//                   decoration: BoxDecoration(
+                    
+//                   ),
+//                   child: Image.asset(
+//                     'assets/images/logo.png',
+//                     width: screenWidth * 0.35, // 🔥 auto-fit logo
+//                   ),
+//                 ),
+
+//                 const SizedBox(height: 24),
+
+//                 /// ✅ App Name
+//                 const Text(
+//                   'EduVerce',
+//                   style: TextStyle(
+//                     fontSize: 34,
+//                     fontFamily: 'TimesNewRoman',
+//                     fontWeight: FontWeight.bold,
+//                     color: Color.fromARGB(255, 113, 108, 108),
+//                     letterSpacing: 1.2,
+//                   ),
+//                 ),
+
+//                 const SizedBox(height: 20),
+
+//                 /// ✅ Tagline
+//                 const Padding(
+//                   padding: EdgeInsets.symmetric(horizontal: 32.0),
+//                   child: Text(
+//                     '“Revisit your school lectures anytime with our easy-to-use app.”',
+//                     textAlign: TextAlign.center,
+//                     style: TextStyle(
+//                       fontSize: 20,
+//                       fontFamily: 'TimesNewRoman',
+//                       color: Color(0xffE0E0E0),
+//                       height: 1.4,
+//                     ),
+//                   ),
+//                 ),
+
+//                 const SizedBox(height: 60),
+
+//                 /// ✅ Get Started Button
+//                 Padding(
+//                   padding: const EdgeInsets.symmetric(horizontal: 32.0),
+//                   child: SizedBox(
+//                     width: double.infinity,
+//                     child: ElevatedButton(
+//                       onPressed: _navigateToLogin,
+//                       style: ElevatedButton.styleFrom(
+//                         backgroundColor: const Color.fromARGB(255, 52, 51, 51),
+//                         foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+//                         shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(30),
+//                         ),
+//                         padding: const EdgeInsets.symmetric(vertical: 16),
+//                         elevation: 6,
+//                       ),
+//                       child: const Text(
+//                         'Get Started',
+//                         style: TextStyle(
+//                           fontFamily: 'TimesNewRoman',
+//                           fontSize: 18,
+//                           fontWeight: FontWeight.bold,
+//                           letterSpacing: 0.8,
+//                         ),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

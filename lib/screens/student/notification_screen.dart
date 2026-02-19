@@ -164,6 +164,8 @@
 //     );
 //   }
 // }
+
+
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
@@ -233,23 +235,37 @@ class _NotificationScreenState extends State<NotificationScreen>
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Notifications'),
+        title: const Text('Notifications',
+        style: TextStyle(
+            fontFamily: 'TimesNewRoman',
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.2,
+            color: Colors.white,
+          ),),
+        
         backgroundColor: Colors.transparent,
-        elevation: 0,
+         elevation: 0,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+               colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Container(
         // ✅ Orange + Blue Gradient Background
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF2193b0), // Blue
-              Color(0xFF6dd5ed), // Light Blue
-              Color(0xFFFFB75E), // Orange
-              Color(0xFFED8F03), // Deep Orange
-            ],
+             colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            stops: [0.0, 0.3, 0.7, 1.0],
           ),
         ),
         child: SafeArea(

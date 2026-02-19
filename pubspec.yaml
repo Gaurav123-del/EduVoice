@@ -56,11 +56,15 @@ dependencies:
   chewie: ^1.7.4 # ✅ Modern video player UI
   video_player: ^2.7.2 # ✅ Core video player
   google_fonts: ^6.2.1 # ✅ Use the latest stable version
+  flutter_dotenv: ^5.1.0
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  
+
 
 flutter:
   uses-material-design: true
@@ -70,3 +74,4 @@ flutter:
     - assets/images/logo.png
     - assets/images/profile_placeholder.png
     - assets/images/t_placeholder.png
+    - assets/images/video_thumb.png

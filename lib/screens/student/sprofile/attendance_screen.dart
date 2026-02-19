@@ -69,7 +69,7 @@ class AttendanceScreen extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF2196F3), Color(0xFFFF9800)], // Blue + Orange
+             colors: [Color(0xFF2196F3), Color(0xFFFF9800)], // Blue + Orange
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

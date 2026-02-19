@@ -22,8 +22,7 @@ class HelpSupportScreen extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF2563EB),
-               Color(0xFFFF6B35)], // Blue + Orange
+               colors: [Color(0xFFFB923C), Color(0xFF0077B6)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
